@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TechCard from '../components/TechCard.astro';
+import ContactForm from '../components/ContactForm.jsx';
+import '../styles/tailwind.css';
+
+// Tech stack data
+const techStack = [
+  {
+    title: "Astro",
+    description: "The web framework for content-driven websites.",
+    icon: "🚀",
+    features: [
+      "Zero JavaScript by default",
+      "Islands architecture",
+      "Static site generation",
+      "Blazing fast performance"
+    ]
+  },
+  {
+    title: "React",
+    description: "Interactive UI components where you need them.",
+    icon: "⚛️",
+    features: [
+      "Component-based architecture",
+      "State management",
+      "Hydration on demand",
+      "Rich ecosystem"
+    ]
+  },
+  {
+    title: "Tailwind CSS",
+    description: "Utility-first CSS framework for rapid UI development.",
+    icon: "🎨",
+    features: [
+      "Utility-first approach",
+      "Dark mode support",
+      "Custom animations",
+      "Minimal CSS bundle"
+    ]
+  }
+];
+
+// Performance metrics
+const performanceMetrics = [
+  { label: "Lighthouse Score", value: "100", suffix: "/100" },
+  { label: "Total JavaScript", value: "~5", suffix: "kb" },
+  { label: "Load Time", value: "<1", suffix: "s" },
+  { label: "Core Web Vitals", value: "Pass", suffix: "" }
+];
+---
+
+<BaseLayout
+  title="Modern Web Showcase | High-Performance Website"
+  description="Experience a blazing-fast website built with Astro, React, and Tailwind CSS. Zero JavaScript by default, 100/100 Lighthouse scores."
+>
+
+  <!-- Hero Section -->
+  <section id="home" class="section-min-height flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-4xl mx-auto text-center animate-in">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+        <span class="gradient-text">Modern Web</span> <br />
+        <span class="text-gray-900 dark:text-white">Showcase</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        Experience the perfect blend of performance and modern design. Built with cutting-edge technologies for exceptional user experience.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#features" class="btn-primary">
+          Explore Features
+        </a>
+        <a
+          href="#contact"
+          class="inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 animate-in">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          Why This Site is <span class="gradient-text">Different</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Built with performance-first mindset and modern web best practices.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        {techStack.map((tech, index) => (
+          <TechCard
+            title={tech.title}
+            description={tech.description}
+            icon={tech.icon}
+            features={tech.features}
+          />
+        ))}
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in">
+        {performanceMetrics.map(metric => (
+          <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 card-hover">
+            <div class="text-3xl font-bold gradient-text mb-2">
+              {metric.value}
+              {metric.suffix && <span class="text-lg text-gray-600 dark:text-gray-400">{metric.suffix}</span>}
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">{metric.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Section -->
+  <section id="performance" class="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50 dark:bg-gray-800/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 animate-in">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="gradient-text">Performance</span> Metrics
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Real-world performance that puts traditional frameworks to shame.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 animate-in">
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold">What Makes It Fast?</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <strong>Static Generation:</strong> Served as static HTML, no server processing
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <strong>Zero JS by Default:</strong> Only loads JavaScript for interactive components
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <strong>Optimized Assets:</strong> Automatic CSS bundling and minification
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div>
+                  <strong>View Transitions:</strong> Smooth navigation without full page reloads
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 animate-in">
+          <h4 class="text-lg font-semibold mb-4">Lighthouse Scores</h4>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Performance</span>
+                <span class="font-semibold">100</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Accessibility</span>
+                <span class="font-semibold">100</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Best Practices</span>
+                <span class="font-semibold">100</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>SEO</span>
+                <span class="font-semibold">100</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Deep Dive -->
+  <section id="tech" class="px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 animate-in">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          Tech Stack <span class="gradient-text">Deep Dive</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          A carefully curated combination of modern tools for optimal performance.
+        </p>
+      </div>
+
+      <div class="prose dark:prose-invert max-w-4xl mx-auto animate-in">
+        <h3>Why Astro?</h3>
+        <p>
+          Astro is the game-changer in modern web development. Unlike traditional frameworks that ship JavaScript for every component, Astro renders everything to static HTML by default. This means your site loads instantly, search engines love it, and users get a snappy experience.
+        </p>
+
+        <h3>The Islands Architecture</h3>
+        <p>
+          Our contact form uses React, but it's isolated as an "island" - it only loads when needed, and the rest of the page remains static. This selective hydration gives you the best of both worlds: interactivity where you need it, performance everywhere else.
+        </p>
+
+        <h3>Tailwind CSS for Styling</h3>
+        <p>
+          Tailwind's utility-first approach lets us style everything without writing custom CSS. The result? A tiny CSS bundle and consistent design system. Plus, dark mode is built right in.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50 dark:bg-gray-800/50">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 animate-in">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          Get In <span class="gradient-text">Touch</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">
+          Have a project in mind? Let's discuss how we can build something amazing together.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm animate-in">
+        <ContactForm client:load />
+      </div>
+
+      <div class="mt-8 text-center animate-in">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Or reach out directly at hello@example.com
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
