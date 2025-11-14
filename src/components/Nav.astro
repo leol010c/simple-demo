@@ -1,20 +1,20 @@
 ---
 ---
 
-<nav class="simple-nav sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+<nav class="simple-nav sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <span class="font-semibold text-xl text-gray-900 dark:text-white">Ihr Partner</span>
+        <span class="font-semibold text-xl text-gray-800 dark:text-gray-200">Ihr Partner</span>
       </a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Startseite</a>
-        <a href="/uber-uns" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Über uns</a>
-        <a href="/leistungen" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Leistungen</a>
-        <a href="/kontakt" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Kontakt</a>
+        <a href="/" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Startseite</a>
+        <a href="/uber-uns" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Über uns</a>
+        <a href="/leistungen" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Leistungen</a>
+        <a href="/kontakt" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Kontakt</a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -31,18 +31,18 @@
 
     <!-- Mobile Menu -->
     <div class="md:hidden hidden" id="mobile-menu">
-      <div class="py-4 space-y-3 border-t border-gray-200 dark:border-gray-800">
-        <a href="/" class="block font-medium text-gray-700 dark:text-gray-300">Startseite</a>
-        <a href="/uber-uns" class="block font-medium text-gray-700 dark:text-gray-300">Über uns</a>
-        <a href="/leistungen" class="block font-medium text-gray-700 dark:text-gray-300">Leistungen</a>
-        <a href="/kontakt" class="block font-medium text-gray-700 dark:text-gray-300">Kontakt</a>
+      <div class="py-4 space-y-3 border-t border-gray-200 dark:border-gray-700">
+        <a href="/" class="block font-medium text-gray-600 dark:text-gray-400">Startseite</a>
+        <a href="/uber-uns" class="block font-medium text-gray-600 dark:text-gray-400">Über uns</a>
+        <a href="/leistungen" class="block font-medium text-gray-600 dark:text-gray-400">Leistungen</a>
+        <a href="/kontakt" class="block font-medium text-gray-600 dark:text-gray-400">Kontakt</a>
       </div>
     </div>
   </div>
 </nav>
 
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
+<script>
+  function setupMobileMenu() {
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -50,6 +50,20 @@
       menuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
+
+      // Close menu when clicking on links
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
     }
-  });
+  }
+
+  // Run on initial load
+  setupMobileMenu();
+
+  // Run on page transitions
+  document.addEventListener('astro:page-load', setupMobileMenu);
 </script>

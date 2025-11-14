@@ -8,21 +8,21 @@
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200;
   }
 
   ::selection {
-    @apply bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900;
+    @apply bg-gray-300 text-gray-900 dark:bg-gray-600 dark:text-gray-100;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:hover:bg-gray-200 text-white dark:text-gray-900 font-medium rounded-lg transition-colors;
+    @apply inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 dark:bg-gray-300 dark:hover:bg-gray-200 text-white dark:text-gray-900 font-medium rounded-lg transition-colors;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors;
+    @apply inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors;
   }
 
   /* Scroll animations */
