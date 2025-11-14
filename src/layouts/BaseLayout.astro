@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -16,6 +17,7 @@ const { title, description, image } = Astro.props;
 <html lang="de" class="scroll-smooth">
   <head>
     <MainHead title={title} description={description} image={image} />
+    <ViewTransitions />
   </head>
 
   <body class="antialiased">
@@ -29,24 +31,32 @@ const { title, description, image } = Astro.props;
 
     <!-- Scroll animations -->
     <script>
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+      function setupScrollAnimations() {
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-          }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fade-in');
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with animate-in class
+        document.querySelectorAll('.animate-in').forEach(el => {
+          observer.observe(el);
         });
-      }, observerOptions);
+      }
 
-      // Observe all elements with animate-in class
-      document.querySelectorAll('.animate-in').forEach(el => {
-        observer.observe(el);
-      });
+      // Run on initial load
+      setupScrollAnimations();
+
+      // Run on page transitions
+      document.addEventListener('astro:page-load', setupScrollAnimations);
     </script>
   </body>
 </html>
