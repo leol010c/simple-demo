@@ -79,42 +79,42 @@ const services = [
 >
 
   <!-- Hero Section -->
-  <section class="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50 dark:bg-gray-800/50">
+  <section class="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gray-50 dark:bg-gray-800/50">
     <div class="max-w-4xl mx-auto text-center animate-in">
-      <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
         Unsere <span class="text-blue-600 dark:text-blue-500">Leistungen</span>
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400">
+      <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400">
         Umfassende Dienstleistungen für Ihren geschäftlichen Erfolg
       </p>
     </div>
   </section>
 
   <!-- Services Grid -->
-  <section class="px-4 sm:px-6 lg:px-8 py-20">
+  <section class="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
     <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {services.map((service) => (
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 animate-in">
-            <div class="text-4xl mb-4" aria-hidden="true">
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 animate-in">
+            <div class="text-3xl sm:text-4xl mb-3 sm:mb-4" aria-hidden="true">
               {service.icon}
             </div>
 
-            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 dark:text-white">
               {service.title}
             </h3>
 
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
               {service.description}
             </p>
 
             <ul class="space-y-2">
               {service.features.map((feature) => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
+                  <span class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -125,54 +125,54 @@ const services = [
   </section>
 
   <!-- Process Section -->
-  <section class="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50 dark:bg-gray-800/50">
+  <section class="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-800/50">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 animate-in">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      <div class="text-center mb-8 sm:mb-12 animate-in">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
           Unser <span class="text-blue-600 dark:text-blue-500">Prozess</span>
         </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
           So arbeiten wir mit Ihnen zusammen
         </p>
       </div>
 
-      <div class="grid md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         <div class="text-center animate-in">
           <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">1</span>
           </div>
-          <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Erstgespräch</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="text-sm sm:text-base font-semibold mb-1 sm:mb-2 text-gray-900 dark:text-white">Erstgespräch</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             Wir lernen Ihre Anforderungen kennen
           </p>
         </div>
 
         <div class="text-center animate-in">
-          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">2</span>
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">2</span>
           </div>
-          <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Konzept</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="text-sm sm:text-base font-semibold mb-1 sm:mb-2 text-gray-900 dark:text-white">Konzept</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             Entwicklung einer maßgeschneiderten Lösung
           </p>
         </div>
 
         <div class="text-center animate-in">
-          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl font-bold text-pink-600 dark:text-pink-400">3</span>
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">3</span>
           </div>
-          <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Umsetzung</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="text-sm sm:text-base font-semibold mb-1 sm:mb-2 text-gray-900 dark:text-white">Umsetzung</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             Professionelle Realisierung des Projekts
           </p>
         </div>
 
         <div class="text-center animate-in">
-          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl font-bold text-green-600 dark:text-green-400">4</span>
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">4</span>
           </div>
-          <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Support</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="text-sm sm:text-base font-semibold mb-1 sm:mb-2 text-gray-900 dark:text-white">Support</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             Kontinuierliche Betreuung und Optimierung
           </p>
         </div>
@@ -181,15 +181,15 @@ const services = [
   </section>
 
   <!-- Call to Action -->
-  <section class="px-4 sm:px-6 lg:px-8 py-20">
+  <section class="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
     <div class="max-w-4xl mx-auto text-center animate-in">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
         Interessiert?
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+      <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 px-4">
         Lassen Sie uns gemeinsam herausfinden, wie wir Ihnen helfen können.
       </p>
-      <a href="/kontakt" class="btn-primary">
+      <a href="/kontakt" class="btn-primary inline-flex justify-center">
         Kostenlose Beratung anfragen
       </a>
     </div>
