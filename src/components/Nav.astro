@@ -1,28 +1,25 @@
 ---
 ---
 
-<nav class="glass-nav sticky top-0 z-50" id="main-nav">
+<nav class="simple-nav sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-        </svg>
-        <span class="font-semibold text-xl gradient-text">Ihr Partner</span>
+      <a href="/" class="flex items-center">
+        <span class="font-semibold text-xl text-gray-800 dark:text-gray-200">Ihr Partner</span>
       </a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="nav-link font-medium hover:text-blue-600 transition-colors">Startseite</a>
-        <a href="/uber-uns" class="nav-link font-medium hover:text-blue-600 transition-colors">Über uns</a>
-        <a href="/leistungen" class="nav-link font-medium hover:text-blue-600 transition-colors">Leistungen</a>
-        <a href="/kontakt" class="nav-link font-medium hover:text-blue-600 transition-colors">Kontakt</a>
+        <a href="/" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Startseite</a>
+        <a href="/uber-uns" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Über uns</a>
+        <a href="/leistungen" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Leistungen</a>
+        <a href="/kontakt" class="font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">Kontakt</a>
       </div>
 
       <!-- Mobile Menu Button -->
       <button
-        class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        class="md:hidden p-2"
         id="mobile-menu-button"
         aria-label="Menü öffnen"
       >
@@ -33,42 +30,40 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div
-      class="md:hidden fixed left-0 right-0 glass-nav transform -translate-y-full opacity-0 transition-all duration-300"
-      id="mobile-menu"
-    >
-      <div class="px-4 py-6 space-y-4">
-        <a href="/" class="block font-medium hover:text-blue-600 transition-colors">Startseite</a>
-        <a href="/uber-uns" class="block font-medium hover:text-blue-600 transition-colors">Über uns</a>
-        <a href="/leistungen" class="block font-medium hover:text-blue-600 transition-colors">Leistungen</a>
-        <a href="/kontakt" class="block font-medium hover:text-blue-600 transition-colors">Kontakt</a>
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="py-4 space-y-3 border-t border-gray-200 dark:border-gray-700">
+        <a href="/" class="block font-medium text-gray-600 dark:text-gray-400">Startseite</a>
+        <a href="/uber-uns" class="block font-medium text-gray-600 dark:text-gray-400">Über uns</a>
+        <a href="/leistungen" class="block font-medium text-gray-600 dark:text-gray-400">Leistungen</a>
+        <a href="/kontakt" class="block font-medium text-gray-600 dark:text-gray-400">Kontakt</a>
       </div>
     </div>
   </div>
 </nav>
 
 <script>
-  // Mobile menu toggle
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  function setupMobileMenu() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  menuButton?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.contains('translate-y-0');
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
 
-    if (isOpen) {
-      mobileMenu?.classList.remove('translate-y-0', 'opacity-100');
-      mobileMenu?.classList.add('-translate-y-full', 'opacity-0');
-    } else {
-      mobileMenu?.classList.remove('-translate-y-full', 'opacity-0');
-      mobileMenu?.classList.add('translate-y-0', 'opacity-100');
+      // Close menu when clicking on links
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
     }
-  });
+  }
 
-  // Close mobile menu on link click
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.remove('translate-y-0', 'opacity-100');
-      mobileMenu?.classList.add('-translate-y-full', 'opacity-0');
-    });
-  });
+  // Run on initial load
+  setupMobileMenu();
+
+  // Run on page transitions
+  document.addEventListener('astro:page-load', setupMobileMenu);
 </script>

@@ -30,9 +30,9 @@ const services = [
   <!-- Hero Section -->
   <section class="section-min-height flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
     <div class="max-w-4xl mx-auto text-center animate-in">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gray-800 dark:text-gray-200">
         Willkommen bei <br />
-        <span class="gradient-text">Ihrem Partner</span>
+        Ihrem Partner
       </h1>
 
       <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -44,10 +44,7 @@ const services = [
         <a href="/leistungen" class="btn-primary">
           Unsere Leistungen
         </a>
-        <a
-          href="/kontakt"
-          class="inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200"
-        >
+        <a href="/kontakt" class="btn-secondary">
           Kontakt aufnehmen
         </a>
       </div>
@@ -55,11 +52,11 @@ const services = [
   </section>
 
   <!-- Services Section -->
-  <section class="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50 dark:bg-gray-800/50">
+  <section class="px-4 sm:px-6 lg:px-8 py-20 bg-gray-100 dark:bg-gray-800/50">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12 animate-in">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-          Unsere <span class="gradient-text">Leistungen</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+          Unsere Leistungen
         </h2>
         <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Professionelle Dienstleistungen für Ihren Erfolg
@@ -68,11 +65,11 @@ const services = [
 
       <div class="grid md:grid-cols-3 gap-8">
         {services.map((service) => (
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 animate-in">
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300 animate-in">
             <div class="text-4xl mb-4" aria-hidden="true">
               {service.icon}
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
               {service.title}
             </h3>
             <p class="text-gray-600 dark:text-gray-400">
@@ -93,7 +90,7 @@ const services = [
   <!-- Call to Action -->
   <section class="px-4 sm:px-6 lg:px-8 py-20">
     <div class="max-w-4xl mx-auto text-center animate-in">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-200">
         Bereit zu starten?
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
